@@ -1,73 +1,42 @@
 // LabClass.cpp : Defines the entry point for the console application.
 //
-
-
 //My tests on an Intel i7-4712MQ, 8 cores
 /*
-
 	N=512
 	Normal:				269 ms								
 	Multithreading:		68 ms									
-
 	Multithreading												
-
 		& line access:  26 ms
-
 	SIMD1:				18 ms
-
-	SIMD2:				20 ms
-	
+	SIMD2:				20 ms	
 
 	N=2048   
-
 	Normal:				84 s
-
 	Multithreading:		42 s
-
 	Multithreading 
-
 		& line access:  2,5 s
-
 	SIMD1:				0,9 s
-
 	SIMD2:				0,9 s
-
-
 
 	Conclusion: 
 
 	Once the buffer is overloaded the processing time increases considerably. Reason is that CPU waits for memory 
-
 	requests to be fulfilled and this leads to memory latency. Every access of data which is not in the cache is more expensive in terms of time
-
 	because RAM or sometimes even HDD needs to be accesed. Then data present in the cache will always be easily and fast accesible.
-
 	Therefore time will not be slowed down by a factor of 64 because its variance depends on available resources 
-
 	and amount of information needed by the CPU which can be partially accessed from cache and partially from RAM. 
-
 	Exact procentage and numbers always depend on the arhitechture of the operating system and the free resources available on runtime.
-
-
 
 	-----
 
 	Extra test: Accessing the matrix in a more efficient way of storing data in the cache by first accesing line i and column k of first
-
 				matrix and then the coresponding elements of second matrix (last 2 for loops are switched)
 
-
-
 	N 512, Multithreading with line and column access: 39 ms
-
 	N 2048, Multithreading with line and column access: 2 s
 
-
-
 	Conclusion: Using the memory properly can significantly improove performance. The results can even be similar to  SIMD or line access.
-
 */
-
 
 #include "stdafx.h"
 #include <pthread.h>
