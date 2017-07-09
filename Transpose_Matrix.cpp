@@ -4,17 +4,17 @@
 /*
 	N=512
 	Normal:				269 ms								
-	Multithreading:		68 ms									
+	Multithreading:			68 ms									
 	Multithreading												
-		& line access:  26 ms
+		& line access:  	26 ms
 	SIMD1:				18 ms
 	SIMD2:				20 ms	
 
 	N=2048   
 	Normal:				84 s
-	Multithreading:		42 s
+	Multithreading:			42 s
 	Multithreading 
-		& line access:  2,5 s
+		& line access:  	2,5 s
 	SIMD1:				0,9 s
 	SIMD2:				0,9 s
 
